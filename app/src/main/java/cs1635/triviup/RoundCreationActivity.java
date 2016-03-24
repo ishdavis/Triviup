@@ -1,14 +1,12 @@
 package cs1635.triviup;
 
-import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
@@ -18,7 +16,10 @@ public class RoundCreationActivity extends AppCompatActivity implements View.OnC
     public EditText startTimeText;
     public EditText questionTimerText;
     public EditText maxTeamCountText;
+    public int roundStartHour;
+    public int roundStartMinute;
     public int hour, minute;
+    public Button createRoundButton;
 
 
     @Override
@@ -29,10 +30,12 @@ public class RoundCreationActivity extends AppCompatActivity implements View.OnC
         startTimeText = (EditText) findViewById(R.id.start_time);
         questionTimerText = (EditText) findViewById(R.id.question_timer);
         maxTeamCountText = (EditText) findViewById(R.id.max_team_count);
+        createRoundButton = (Button) findViewById(R.id.create_round_button);
 
         startTimeText.setOnClickListener(this);
         questionTimerText.setOnClickListener(this);
         maxTeamCountText.setOnClickListener(this);
+        createRoundButton.setOnClickListener(this);
 
         startTimeText.setOnFocusChangeListener(this);
         questionTimerText.setOnFocusChangeListener(this);
@@ -48,6 +51,8 @@ public class RoundCreationActivity extends AppCompatActivity implements View.OnC
             handleQuestionTimeLimit();
         } else if (v == maxTeamCountText && v.isFocused()) {
             handleMaxNumberOfTeams();
+        } else if (v == createRoundButton){
+            handleCreateRound();
         }
     }
 
@@ -72,6 +77,8 @@ public class RoundCreationActivity extends AppCompatActivity implements View.OnC
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                roundStartHour = hourOfDay;
+                roundStartMinute = minute;
                 setStartTime(hourOfDay, minute);
             }
         }, hour, minute, false);
@@ -86,9 +93,18 @@ public class RoundCreationActivity extends AppCompatActivity implements View.OnC
         questionTimerFragment.show(getFragmentManager(), "JMB");
     }
 
+    // Create and display the max team size picker
     public void handleMaxNumberOfTeams(){
         TeamCountFragment teamCountFragment = new TeamCountFragment();
         teamCountFragment.show(getFragmentManager(), "JMB");
+    }
+
+    // Creates the lobby
+    public void handleCreateRound(){
+        Intent intent = new Intent(this, LobbyActivity.class);
+        intent.putExtra("StartHour", roundStartHour);
+        intent.putExtra("StartMinute", roundStartMinute);
+        startActivity(intent);
     }
 
     // Converts time to 12 hour format - 22:15 becomes 10:15 PM
