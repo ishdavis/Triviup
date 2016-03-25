@@ -3,7 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="50dp"
     android:layout_margin="5dp"
     card_view:cardCornerRadius="4dp">
 
@@ -17,21 +17,19 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
             android:gravity="start|center_vertical"
             android:layout_weight="1"
             android:text="Name"
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/team_size"
+            android:id="@+id/team_size_points"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
             android:gravity="end|center_vertical"
             android:layout_weight="1"
-            android:text="Team Size"
+            android:text="Team Size/Points"
             android:textSize="22sp" />
 
     </LinearLayout>

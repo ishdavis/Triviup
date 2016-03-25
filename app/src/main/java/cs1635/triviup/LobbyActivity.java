@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,8 +27,10 @@ public class LobbyActivity extends AppCompatActivity {
     public long remainingMillis;
 
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.Adapter myAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+
+    private List<TeamInfo> teams;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +45,13 @@ public class LobbyActivity extends AppCompatActivity {
 
         generateTime();
         startCounter();
+        teams = createList();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.card_list);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        MyAdapter myAdapter = new MyAdapter(createList());
+        myAdapter = new MyAdapter(teams);
         mRecyclerView.setAdapter(myAdapter);
     }
 
@@ -77,6 +81,10 @@ public class LobbyActivity extends AppCompatActivity {
             currentTime = df.parse(currentHours + ":" + currentMinutes + ":" + currentSeconds);
             remainingMillis = startTime.getTime() - currentTime.getTime();
 
+            // Gives time to initialize everything then starts the timer with 1 second remaining
+            if(remainingMillis <= 0){
+                remainingMillis = 1000;
+            }
             updateDisplayTimer();
 
         } catch (ParseException e) {
@@ -95,6 +103,7 @@ public class LobbyActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 timeUntilStart.setText("0:00:00");
+                launchLeaderboard();
             }
         }.start();
     }
@@ -124,6 +133,11 @@ public class LobbyActivity extends AppCompatActivity {
         timeUntilStart.setText(timerText);
     }
 
+    private void launchLeaderboard(){
+        Intent intent = new Intent(this, LeaderboardActivity.class);
+        intent.putExtra("Teams", (Serializable) teams);
+        startActivity(intent);
+    }
 
     private List<TeamInfo> createList() {
 
@@ -132,10 +146,15 @@ public class LobbyActivity extends AppCompatActivity {
 
         List<TeamInfo> result = new ArrayList<>();
         Random rand = new Random();
+        String teamName;
+        int teamSize;
+        int roundPoints;
+
         for (int i = 0; i < teamNames.size(); i++) {
-            TeamInfo teamInfo = new TeamInfo();
-            teamInfo.teamName = teamNames.get(i);
-            teamInfo.teamSize = rand.nextInt(4) + 2;
+            teamName = teamNames.get(i);
+            teamSize = rand.nextInt(4) + 2;
+            roundPoints = rand.nextInt(100) + 1;
+            TeamInfo teamInfo = new TeamInfo(teamName, teamSize, roundPoints);
 
             result.add(teamInfo);
         }

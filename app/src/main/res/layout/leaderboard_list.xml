@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="cs1635.triviup.LobbyActivity"
-    tools:showIn="@layout/activity_lobby">
+    tools:context="cs1635.triviup.LeaderboardActivity"
+    tools:showIn="@layout/activity_leaderboard">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:text="Team Size"
+                android:text="Points"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -43,7 +43,6 @@
             android:id="@+id/card_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>

@@ -11,10 +11,10 @@ import java.util.List;
 /**
  * Created by Jonathan on 3/21/2016.
  */
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.TeamViewHolder> {
+public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.TeamViewHolder> {
     private List<TeamInfo> teamList;
 
-    public MyAdapter(List<TeamInfo> contactList) {
+    public LeaderboardAdapter(List<TeamInfo> contactList) {
         this.teamList = contactList;
     }
 
@@ -22,7 +22,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.TeamViewHolder> {
     public void onBindViewHolder(TeamViewHolder teamViewHolder, int i) {
         TeamInfo teamInfo = teamList.get(i);
         teamViewHolder.vTeamName.setText(teamInfo.teamName);
-        teamViewHolder.vTeamSize.setText(String.valueOf(teamInfo.teamSize));
+        teamViewHolder.vTeamPoints.setText(String.valueOf(teamInfo.roundPoints));
 
     }
 
@@ -43,12 +43,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.TeamViewHolder> {
 
     public static class TeamViewHolder extends RecyclerView.ViewHolder {
         protected TextView vTeamName;
-        protected TextView vTeamSize;
+        protected TextView vTeamPoints;
 
         public TeamViewHolder(View v) {
             super(v);
             vTeamName = (TextView) v.findViewById(R.id.team_name);
-            vTeamSize = (TextView) v.findViewById(R.id.team_size_points);
+            vTeamPoints = (TextView) v.findViewById(R.id.team_size_points);
         }
     }
 }
