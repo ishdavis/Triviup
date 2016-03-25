@@ -6,4 +6,6 @@ package cs1635.triviup;
 public class TeamInfo {
     protected String teamName;
     protected int teamSize;
+    protected int cumulativeScore;
+    protected int roundScore;
 }

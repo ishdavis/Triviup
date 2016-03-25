@@ -22,8 +22,7 @@
         <activity
             android:name=".LobbyActivity"
             android:label="@string/title_activity_lobby"
-            android:parentActivityName=".RoundCreationActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:parentActivityName=".RoundCreationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cs1635.triviup.RoundCreationActivity" />
