@@ -11,20 +11,22 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="cs1635.triviup.questionScreen"
     tools:showIn="@layout/app_bar_question_screen">
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/questionHolder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/newQuestion"/>
-    <Button android:id="@+id/newQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Question"
-        android:enabled="true"
-        android:ellipsize="none"
-        android:textSize="20dp"
+        android:layout_above="@+id/newQuestion" />
+
+    <Button
+        android:id="@+id/newQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
+        android:layout_marginTop="39dp"
+        android:ellipsize="none"
+        android:enabled="true"
+        android:text="New Question" />
 
 </RelativeLayout>
