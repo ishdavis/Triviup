@@ -31,6 +31,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cs1635.triviup.questionScreen" />
         </activity>
+        <activity android:name=".RoundCreationActivity">
+        </activity>
+        <activity
+            android:name=".LobbyActivity"
+            android:label="@string/title_activity_lobby"
+            android:parentActivityName=".RoundCreationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cs1635.triviup.RoundCreationActivity" />
+        </activity>
+        <activity
+            android:name=".LeaderboardActivity"
+            android:label="@string/title_activity_leaderboard"/>
     </application>
 
 </manifest>
