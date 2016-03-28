@@ -20,6 +20,7 @@
         android:id="@+id/addedQuestion"
         android:layout_marginTop="41dp"
         android:layout_alignParentTop="true"
+        android:textSize="30sp"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -42,12 +43,11 @@
 
 
     <Button android:id="@+id/Save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:text="Save"
         android:enabled="true"
         android:ellipsize="none"
-        android:textSize="20dp"
         android:layout_below="@+id/incorrect3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="39dp" />
