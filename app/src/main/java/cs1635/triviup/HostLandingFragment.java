@@ -78,16 +78,11 @@ public class HostLandingFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         String[] test = new String[10];
-        test[0] = "Example Match 1";
-        test[1] = "Example Match 2";
-        test[2] = "Example Match 3";
-        test[3] = "Example Match 4";
-        test[4] = "Example Match 5";
-        test[5] = "Example Match 6";
-        test[6] = "Example Match 7";
-        test[7] = "Example Match 8";
-        test[8] = "Example Match 9";
-        test[9] = "Example Match 10";
+        test[0] = "Star Team 1";
+        test[1] = "Oakland Warriors";
+        test[2] = "Pitt Dissapointment";
+        test[3] = "Snowy days";
+        test[4] = "Easter fun";
         mAdapter = new MatchHistoryAdapter(test);
         mRecyclerView.setAdapter(mAdapter);// Inflate the layout for this fragment
 

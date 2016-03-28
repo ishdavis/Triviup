@@ -157,8 +157,9 @@ public class questionScreen extends AppCompatActivity
             questionScreen.this.startActivity(i);
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.log_out) {
+            i = new Intent(questionScreen.this, LoginActivity.class);
+            questionScreen.this.startActivity(i);
         }
 
         return true;
