@@ -138,23 +138,29 @@ public class questionScreen extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
 
+        Intent i;
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            //start questions
         } else if (id == R.id.nav_gallery) {
-
+            //start game
+            i = new Intent(questionScreen.this, RoundCreationActivity.class);
+            questionScreen.this.startActivity(i);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
-
+            //start landing
+            i = new Intent(questionScreen.this, LandingPageActivity.class);
+            i.putExtra("Type", "host");
+            questionScreen.this.startActivity(i);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }
