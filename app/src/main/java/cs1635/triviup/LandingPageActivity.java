@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -24,11 +23,11 @@ public class LandingPageActivity extends AppCompatActivity
         FragmentTransaction ft = fm.beginTransaction();
 
         if (landingType.equals("user")) {
-            UserLandingFragment mainFragment = new UserLandingFragment();
+            LandingPageFragmentUser mainFragment = new LandingPageFragmentUser();
             ft.add(R.id.bodyfragment, mainFragment);
             ft.commit();
         } else {
-            HostLandingFragment mainFragment = new HostLandingFragment();
+            LandingPageFragmentHost mainFragment = new LandingPageFragmentHost();
             ft.add(R.id.bodyfragment, mainFragment);
             ft.commit();
         }

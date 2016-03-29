@@ -16,10 +16,10 @@ import android.view.ViewGroup;
  * Activities that contain this fragment must implement the
  * {@link LandingPageInterface} interface
  * to handle interaction events.
- * Use the {@link UserLandingFragment#newInstance} factory method to
+ * Use the {@link LandingPageFragmentHost#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserLandingFragment extends Fragment {
+public class LandingPageFragmentHost extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +29,6 @@ public class UserLandingFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    //private OnFragmentInteractionListener mListener;
     private LandingPageInterface mListener;
 
     // RecyclerViews
@@ -37,7 +36,7 @@ public class UserLandingFragment extends Fragment {
     private MatchHistoryAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    public UserLandingFragment() {
+    public LandingPageFragmentHost() {
         // Required empty public constructor
     }
 
@@ -47,11 +46,11 @@ public class UserLandingFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment UserLandingFragment.
+     * @return A new instance of fragment LandingPageFragmentHost.
      */
     // TODO: Rename and change types and number of parameters
-    public static UserLandingFragment newInstance(String param1, String param2) {
-        UserLandingFragment fragment = new UserLandingFragment();
+    public static LandingPageFragmentHost newInstance(String param1, String param2) {
+        LandingPageFragmentHost fragment = new LandingPageFragmentHost();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,33 +65,24 @@ public class UserLandingFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_user_landing, container, false);
-        rootView.setTag("UserLandingFragment");
+        View rootView = inflater.inflate(R.layout.fragment_host_landing, container, false);
+        rootView.setTag("LandingPageFragmentHost");
 
         // Handle RecyclerView for Match History
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.matchHistoryRecycler);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         String[] test = new String[10];
-        test[0] = "Example Match 1";
-        test[1] = "Example Match 2";
-        test[2] = "Example Match 3";
-        test[3] = "Example Match 4";
-        test[4] = "Example Match 5";
-        test[5] = "Example Match 6";
-        test[6] = "Example Match 7";
-        test[7] = "Example Match 8";
-        test[8] = "Example Match 9";
-        test[9] = "Example Match 10";
+        test[0] = "Star Team 1";
+        test[1] = "Oakland Warriors";
+        test[2] = "Pitt Dissapointment";
+        test[3] = "Snowy days";
+        test[4] = "Easter fun";
         mAdapter = new MatchHistoryAdapter(test);
         mRecyclerView.setAdapter(mAdapter);// Inflate the layout for this fragment
 
