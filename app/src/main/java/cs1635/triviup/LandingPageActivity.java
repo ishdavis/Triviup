@@ -7,9 +7,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class LandingPageActivity extends FragmentActivity
+public class LandingPageActivity extends AppCompatActivity
     implements LandingPageInterface {
 
     @Override
@@ -50,6 +51,11 @@ public class LandingPageActivity extends FragmentActivity
 
     public void newGameListener(View v) {
         Intent intent = new Intent(this, RoundCreationActivity.class);
+        startActivity(intent);
+    }
+
+    public void findGameListener(View v) {
+        Intent intent = new Intent(this, FindGameActivity.class);
         startActivity(intent);
     }
 }
