@@ -46,41 +46,102 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Save"
+        android:layout_alignParentBottom="true"
         android:enabled="true"
         android:ellipsize="none"
-        android:layout_below="@+id/incorrect3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
+        android:layout_marginTop="39dp"
+         />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/correct"
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:hint="Correct Answer" />
+        android:id="@+id/radioG"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/Save"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/incorrect1"
-        android:hint="Incorrect Answer 1"
-        android:layout_below="@+id/correct"
-        android:layout_centerHorizontal="true" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/incorrect2"
-        android:hint="Incorrect Answer 2"
-        android:layout_below="@+id/incorrect1"
-        android:layout_centerHorizontal="true" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/correctRadio"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/incorrect3"
-        android:hint="Incorrect Answer 3"
-        android:layout_below="@+id/incorrect2"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/incorrect1"
+            android:layout_alignBaseline="@+id/incorrect1Radio"
+            android:layout_toRightOf="@+id/incorrect1Radio"
+            android:hint="Answer 2" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/incorrect2"
+            android:layout_alignBaseline="@+id/incorrect2Radio"
+            android:layout_toRightOf="@+id/incorrect2Radio"
+            android:hint="Answer 3" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/incorrect3"
+            android:layout_alignBaseline="@+id/incorrect3Radio"
+            android:layout_toRightOf="@+id/incorrect3Radio"
+            android:hint="Answer 3" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/correct"
+            android:layout_alignBaseline="@+id/correctRadio"
+            android:layout_toRightOf="@+id/correctRadio"
+            android:hint="Answer 1" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/incorrect1Radio"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_below="@id/correctRadio"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/incorrect3Radio"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_below="@+id/incorrect2Radio"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/incorrect2Radio"
+            android:layout_below="@+id/incorrect1Radio"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+        </RelativeLayout>
+    </RadioGroup>
+
 </RelativeLayout>

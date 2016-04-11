@@ -86,6 +86,7 @@ public class QuestionAdapter extends
                 i.putExtra("incorrect1", temp.getIncorrect1());
                 i.putExtra("incorrect2", temp.getIncorrect2());
                 i.putExtra("incorrect3", temp.getIncorrect3());
+                i.putExtra("positionChecked", temp.getPosition());
 
                 Parcelable wrapped = Parcels.wrap(questions);
                 i.putExtra("qList", wrapped);

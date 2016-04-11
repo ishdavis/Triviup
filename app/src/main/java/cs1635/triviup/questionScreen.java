@@ -83,9 +83,10 @@ public class questionScreen extends AppCompatActivity
             String incorrect1 = data.getStringExtra("incorrect1");
             String incorrect2 = data.getStringExtra("incorrect2");
             String incorrect3 = data.getStringExtra("incorrect3");
+            int position = data.getIntExtra("positionChecked", -1);
             ArrayList<Question> currentQuestions = adapter.getData();
 
-            currentQuestions.add(new Question(question,incorrect2,incorrect1,incorrect3,correct));
+            currentQuestions.add(new Question(question,incorrect2,incorrect1,incorrect3,correct, position));
 
             adapter.notifyDataSetChanged();
         }
@@ -94,10 +95,10 @@ public class questionScreen extends AppCompatActivity
     //Initially generate some dummy questions
     public ArrayList<Question> createQuestions(){
         ArrayList<Question> questions = new ArrayList<Question>();
-        questions.add(new Question("How old am I?", "22", "23", "24", "21"));
-        questions.add(new Question("How old am Idddddddddddddddddddddddddddddddddddddddd?", "22", "23", "24", "21"));
-        questions.add(new Question("How old am Isssssssssssssssssssssssssssssssssssssssssssssssssss?","22", "23", "24", "21"));
-        questions.add(new Question("What is your name?aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","Sam", "Mike", "Allan", "Matt"));
+        questions.add(new Question("Which number is largest?", "22", "23", "24", "21", 2));
+        questions.add(new Question("Which U.S. state is the largest?", "California", "Texas", "Montana", "Alaska", 3));
+        questions.add(new Question("Square root of 1369?","29", "42", "37", "34", 2));
+        questions.add(new Question("What is the capital of Canada","Quebec", "Ottawa", "Toronto", "Winnipeg", 1));
         return questions;
     }
 

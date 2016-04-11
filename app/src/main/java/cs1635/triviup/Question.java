@@ -14,14 +14,25 @@ public class Question {
     String incorrect3;
     String correctAnswer;
 
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    int position;
+
     public Question(){}
 
-    public Question(String question, String inc1, String inc2, String inc3, String correctAnswer){
+    public Question(String question, String inc1, String inc2, String inc3, String correctAnswer, int position){
         this.question = question;
         this.incorrect1 = inc1;
         this.incorrect2 = inc2;
         this.incorrect3 = inc3;
         this.correctAnswer = correctAnswer;
+        this.position = position;
     }
 
     public String getIncorrect1() {
